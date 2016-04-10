@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+
+    <title>lineTruncate test</title>
+
+    <style>
+      .text-block {
+        width: 500px;
+        border: 1px solid black;
+        word-wrap: break-word;
+      }
+    </style>
+
+    <script src="../truncateLines.js"></script>
+    <script>
+      'use strict';
+
+      document.addEventListener('DOMContentLoaded', function () {
+        let text = document.getElementById('example2').textContent;
+
+        // Truncate lines
+        document.getElementById('form-truncate').addEventListener('submit', function (e) {
+          e.preventDefault();
+          document.getElementById('example2').textContent = text;
+
+          truncateLines(
+            document.getElementById('example2'),
+            document.getElementById('lines').value
+          );
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <h3>Truncate text to 3 lines</h3>
+    <p id="example1" class="text-block truncate3">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu tellus ac ipsum aliquet aliquam. Ut neque justo, eleifend vel commodo sit amet, congue venenatis libero. Nullam eget tincidunt arcu. Pellentesque a eros nisi. Aenean pulvinar eros id commodo malesuada. Duis metus felis, aliquam nec rutrum sed, laoreet id ligula. Vivamus consequat dolor lectus, eu malesuada mi mattis nec. Vestibulum magna tortor, tincidunt ac urna non, pulvinar congue metus. Pellentesque at tristique nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris mattis erat sem, non iaculis nulla varius ut.
+
+      Aliquam lobortis dictum neque, blandit auctor nulla tincidunt nec. Praesent ac neque arcu. Proin blandit mollis urna, eu sodales diam. Nunc lorem tellus, dictum id placerat eget, ornare eget mauris. Integer iaculis rutrum tortor, quis blandit magna auctor vel. Nulla quis felis non eros consectetur fermentum. Aliquam erat volutpat. Etiam vitae fringilla magna. Praesent erat ex, dapibus sed lorem sed, lacinia vulputate quam. Nulla facilisi.
+    </p>
+    <script>truncateLines('truncate3', 3);</script>
+
+    <h3>Truncate to a chosen number of lines</h3>
+    <p id="example2" class="text-block">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu tellus ac ipsum aliquet aliquam. Ut neque justo, eleifend vel commodo sit amet, congue venenatis libero. Nullam eget tincidunt arcu. Pellentesque a eros nisi. Aenean pulvinar eros id commodo malesuada. Duis metus felis, aliquam nec rutrum sed, laoreet id ligula. Vivamus consequat dolor lectus, eu malesuada mi mattis nec. Vestibulum magna tortor, tincidunt ac urna non, pulvinar congue metus. Pellentesque at tristique nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris mattis erat sem, non iaculis nulla varius ut.
+
+      Aliquam lobortis dictum neque, blandit auctor nulla tincidunt nec. Praesent ac neque arcu. Proin blandit mollis urna, eu sodales diam. Nunc lorem tellus, dictum id placerat eget, ornare eget mauris. Integer iaculis rutrum tortor, quis blandit magna auctor vel. Nulla quis felis non eros consectetur fermentum. Aliquam erat volutpat. Etiam vitae fringilla magna. Praesent erat ex, dapibus sed lorem sed, lacinia vulputate quam. Nulla facilisi.
+    </p>
+    <p>
+      <form id="form-truncate">
+        <label for="lines">Lines :</label>
+        <input type="number" id="lines" value="5">
+        <button type="submit">Truncate</button>
+      </form>
+    </p>
+  </body>
+</html>
